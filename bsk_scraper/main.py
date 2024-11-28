@@ -8,16 +8,15 @@ from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.common.by import By
 
-BASE_URL = 'http://localhost/'
+BASE_URL = 'https://frog02-20741.wykr.es/' # https://kamilex106.com/
 HEADLESS = False
 
 class SitemapError(Exception):
     pass
 
 def get_links():
-    sitemap_url = BASE_URL+"sitemap.xml"
+    sitemap_url = "https://frog02-20741.wykr.es/sitemap.xml" #BASE_URL+"sitemap.xml"
     headers = {
-        "Host": "localhost",
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0",
         "Accept": "image/avif,image/webp,image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5",
         "Accept-Language": "pl,en-US;q=0.7,en;q=0.3",
@@ -62,7 +61,7 @@ def get_products(driver, link):
                 'price': float(prod.find_element(By.TAG_NAME, 'p').text.split(' ')[0]) 
             } for prod in products]
         
-        time.sleep(random.uniform(1, 10))
+        time.sleep(random.uniform(1, 3))
     
     return data
 
