@@ -1,26 +1,21 @@
-# Variables
-ENV_NAME = bsk-scraper  # Replace with your environment name
+ENV_NAME = bsk-scraper
 
-# Default target
 .PHONY: all
 all: install
 
-# Install dependencies with Poetry in Micromamba environment
 .PHONY: install
 install:
-	micromamba run -n $(ENV_NAME) poetry install
+	poetry install
 
 # Run tests
 # .PHONY: test
 # test:
 # 	micromamba run -n $(ENV_NAME) poetry run pytest
 
-# Run application
 .PHONY: run
 run:
-	micromamba run -n $(ENV_NAME) poetry run python bsk_scraper/main.py
+	poetry run python bsk_scraper/main.py
 
-# Help
 .PHONY: help
 help:
 	@echo "Available targets:"
